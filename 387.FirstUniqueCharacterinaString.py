@@ -8,15 +8,20 @@ class Solution(object):
         T=0
         j=0
         a=0
-        for j in range(len(s)-1):
-            if s.count(s[j]) == 1:
-                a = a + 1
-        if a > 0:
-            while T == 0:
-                if s.count(s[i]) == 1:
-                    T = T + 1
-                else: 
-                    i = i +1
-            return s.index(s[i])
+        if len(s) > 1:
+            for j in range(len(s)):
+                if s.count(s[j]) == 1:
+                    a = a + 1
+            
+            if a > 0:
+                while T == 0:
+                    if s.count(s[i]) == 1:
+                        T = T + 1
+                    else: 
+                        i = i +1
+                return s.index(s[i])
+            else:
+                return -1
         else:
-            return -1
+            return 0
+        
