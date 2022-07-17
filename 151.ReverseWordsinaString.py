@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Solution(object):
     def reverseWords(self, s):
         """
@@ -7,10 +6,10 @@ class Solution(object):
         """
         a = s.split()[::-1]
         i = 0
-        ketqua = ''
+        result = ''
         for i in range(len(a)):
             if i == 0:
-                ketqua = a[i]
+                result = a[i]
             else:
-                ketqua = ketqua + ' ' + a[i]
-        return ketqua
+                result = result + ' ' + a[i]
+        return result
