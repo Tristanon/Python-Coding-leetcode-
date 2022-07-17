@@ -7,7 +7,7 @@ class Solution(object):
         
         for i in range(len(nums)):
         	for j in range(i + 1, len(nums)):
-        		Tong = nums[i] + nums[j]
-        		if Tong == target:
+        		Sum = nums[i] + nums[j]
+        		if Dum == target:
         			return[i,j] 
 
