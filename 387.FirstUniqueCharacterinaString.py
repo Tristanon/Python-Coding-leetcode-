@@ -1,9 +1,5 @@
-class Solution(object):
-    def firstUniqChar(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
         i=0
         T=0
         j=0
