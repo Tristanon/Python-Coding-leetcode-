@@ -1,14 +1,23 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Solution 1:
 class Solution:
     def isValid(self, s: str) -> bool:
-        i=0
-        j=1
-        T=0
-        L=len(s)
-        for i in range(len(s)-1):            
-            for j in range(len(s)-1):
-                if s[i] == s[j]:
-                    T = T + 1
-        if T == L/2:
-            print("true")
+        listopen = []
+        openmark = ('([{')
+        closemark = (')]}')
+        check = {')':'(','}':'{',']':'['}
+        for i in s:
+            if i in openmark:
+                listopen.append(i)
+            if i in closemark:
+                if not listopen:
+                    return False
+                elif listopen.pop() != check[i]:
+                    return False
+                else:
+                    continue
+        if not listopen:
+            return True
         else:
-            print("false")
+            return False
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
