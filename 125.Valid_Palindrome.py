@@ -1,3 +1,4 @@
+#------------------------------------------------------------------------------------------------------------------------------------#
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         if s == " ":
@@ -42,5 +43,19 @@ class Solution:
 # e = Solution()
 # e.isPalindrome("0P")
 # print(e.new_s)
+#-----------------------------------------------------------------------------------------------------------------------------------#
+#Solution 2: Much shorter but worse:
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        new_list = []
+        for index in range(len(s)):
+            if s[index].isalnum():
+                new_list.append(s[index].lower())
+            else: 
+                pass
+        return "".join(new_list) == "".join(new_list[::-1])
 
+# test = Solution()
+# test.isPalindrome("A man, a plan, a canal: Panama")
+# print(test.list)
             
