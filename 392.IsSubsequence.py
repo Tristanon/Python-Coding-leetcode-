@@ -9,3 +9,4 @@ class Solution:
             else:
                 t_index +=1
         return s_index == len(s)
+
