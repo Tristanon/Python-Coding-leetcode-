@@ -1,3 +1,4 @@
+# First approach
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
         left = current_length = zero = 0 
