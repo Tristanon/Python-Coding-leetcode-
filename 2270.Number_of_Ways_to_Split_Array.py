@@ -26,3 +26,15 @@ class Solution:
             if left >= right:
                 answer += 1
         return answer 
+# Third soulution: avoid calculating all the prefix_sum
+class Solution:
+    def waysToSplitArray(self, nums: List[int]) -> int:
+        answer = left_section = 0
+        last_prefix_sum = sum(nums)
+
+        for index in range(len(nums)-1):
+            left_section += nums[index]
+            right_section = last_prefix_sum - left_section
+            if left_section >= right_section:
+                answer += 1
+        return answer 
