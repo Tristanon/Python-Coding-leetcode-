@@ -29,3 +29,15 @@ class Solution:
             actualXor ^= num
 
         return expectedXor ^ actualXor
+#Solution 4:
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        expectedXor = 0
+        for index in range(len(nums)+1):
+            expectedXor += index
+        
+        actualXor = 0
+        for num in nums:
+            actualXor += num
+
+        return expectedXor - actualXor
