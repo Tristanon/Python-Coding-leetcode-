@@ -17,3 +17,15 @@ class Solution:
             if index not in set_num:  
                 return index
         return len(nums)
+# Solution 3:
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        expectedXor = 0
+        for index in range(len(nums)+1):
+            expectedXor ^= index
+        
+        actualXor = 0
+        for num in nums:
+            actualXor ^= num
+
+        return expectedXor ^ actualXor
