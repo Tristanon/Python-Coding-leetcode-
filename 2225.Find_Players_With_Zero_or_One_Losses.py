@@ -17,3 +17,24 @@ class Solution:
                 set_one_lose.remove(loser)
                 set_more_lose.add(loser)
         return [sorted(list(set_zero_lose)), sorted(list(set_one_lose))] 
+
+# Solution 2:
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        set_zero_lose = set()
+        set_one_lose = set()
+        set_more_lose = set()
+        for winner, loser in matches:
+            if (winner not in set_one_lose) and (winner not in set_more_lose):
+                set_zero_lose.add(winner)
+            if (loser in set_zero_lose):
+                set_zero_lose.remove(loser)
+                set_one_lose.add(loser)
+            elif (loser in set_one_lose):
+                set_one_lose.remove(loser)
+                set_more_lose.add(loser)
+            elif (loser in set_more_lose):
+                continue
+            else:
+                set_one_lose.add(loser)
+        return [sorted(list(set_zero_lose)), sorted(list(set_one_lose))]
