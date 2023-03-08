@@ -38,3 +38,26 @@ class Solution:
             else:
                 set_one_lose.add(loser)
         return [sorted(list(set_zero_lose)), sorted(list(set_one_lose))]
+
+# Solution 3:
+from collections import defaultdict
+
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        seen = set()
+        loses_count = {}
+
+        for winner, loser in matches:
+            seen.add(winner)
+            seen.add(loser)
+            loses_count[loser] = loses_count.get(loser,0) + 1
+
+        zero_lose = []
+        one_lose = []
+        for player in seen:
+            count = loses_count.get(player,0)
+            if count == 0:
+                zero_lose.append(player)
+            elif count == 1:
+                one_lose.append(player)
+        return [sorted(zero_lose),sorted(one_lose)]
