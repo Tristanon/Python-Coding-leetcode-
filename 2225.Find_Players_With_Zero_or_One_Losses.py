@@ -61,3 +61,19 @@ class Solution:
             elif count == 1:
                 one_lose.append(player)
         return [sorted(zero_lose),sorted(one_lose)]
+    
+# Solution 4: only Hashmap
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        loses_count = defaultdict(int)
+        for winner, loser in matches:
+            loses_count[winner] = loses_count.get(winner,0)
+            loses_count[loser] = loses_count.get(loser,0) +1
+        
+        zero_lose, one_lose = [], []
+        for player, count in loses_count.items():
+            if count == 0:
+                zero_lose.append(player)
+            elif count == 1:
+                one_lose.append(player)
+        return [sorted(zero_lose),sorted(one_lose)]
