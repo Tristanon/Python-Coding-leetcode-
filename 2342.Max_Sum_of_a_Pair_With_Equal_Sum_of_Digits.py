@@ -24,4 +24,24 @@ class Solution:
         if answer == float(-inf):
             return -1
         return answer
+# Solution 2: Better the space complexity
+ffrom collections import defaultdict
+class Solution:
+    def maximumSum(self, nums: List[int]) -> int:
+        nums.sort()
+        sum_digit = []
+        dic = defaultdict(list)
+        for num in nums:
+            string = str(num)
+            sum = 0
+            for digit in string:
+                sum += int(digit)
+            sum_digit.append(sum)
+            dic[sum].append(num)
+        answer = -1
+        for key in dic:
+            arr = dic[key]
+            if len(dic[key]) > 1:    
+                answer = max(answer,arr[-1]+arr[-2])
+        return answer
             
