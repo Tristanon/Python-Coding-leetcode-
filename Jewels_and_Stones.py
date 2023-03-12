@@ -16,3 +16,14 @@ class Solution:
         for char in dic1:
             answer += dic1[char] * dic2[char]
         return answer
+# Solution 2:
+from collections import defaultdict
+
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        answer = 0
+        for s in jewels:
+            for t in stones:
+                if s==t:
+                    answer +=1
+        return answer
