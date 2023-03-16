@@ -23,3 +23,25 @@ class Solution(object):
         for i in vals:
             ans+=i
         return ans
+# Solution 2:
+class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        char = []
+        for ch in s:
+            char.append(ch)
+        
+        dict = Counter(char)
+        lst_sort = sorted(dict.items(), key=lambda x: x[1], reverse=True)
+        
+        print(lst_sort)
+        s = ""
+        for tup in lst_sort:
+            count = tup[1]
+            while count >= 1:
+                s += tup[0]
+                count -= 1
+        return s
